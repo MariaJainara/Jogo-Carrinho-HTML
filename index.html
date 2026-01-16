@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mini Game de Corrida</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    
+
+<h1>Mini Game de Corrida</h1>
+ <div id="menu">
+        <label>Cor do Carro:</label>
+        <select id="corCarro">
+            <option value="red">Vermelho</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+            <option value="yellow">Amarelo</option>
+        </select>
+
+        <button onclick="iniciarJogo()">START</button>
+        <button onclick="pausarJogo()">PAUSE</button>
+        <button onclick="finalizarJogo()">END</button>
+        <button onclick="voltarMenu()">MENU</button>
+    </div>
+
+    <!-- CONTROLES -->
+    <div id="controles">
+
+        <div id="direcional">
+            <button onclick="moverCima()">⬆️</button><br>
+            <button onclick="moverEsquerda()">⬅️</button>
+            <button onclick="moverBaixo()">⬇️</button>
+            <button onclick="moverDireita()">➡️</button>
+        </div>
+
+    </div>
+
+</div>SssSs
+
+<script src="script.js"></script>
 </body>
 </html>
