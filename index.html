@@ -1,42 +1,127 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Mini Game de Corrida</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
+
 <body>
 
-<h1>Mini Game de Corrida</h1>
- <div id="menu">
-        <label>Cor do Carro:</label>
-        <select id="corCarro">
-            <option value="red">Vermelho</option>
-            <option value="blue">Azul</option>
-            <option value="green">Verde</option>
-            <option value="yellow">Amarelo</option>
-        </select>
+    <h1>Mini Game de Corrida</h1>
 
-        <button onclick="iniciarJogo()">START</button>
-        <button onclick="pausarJogo()">PAUSE</button>
-        <button onclick="finalizarJogo()">END</button>
-        <button onclick="voltarMenu()">MENU</button>
-    </div>
 
-    <!-- CONTROLES -->
-    <div id="controles">
+    <div id="jogo-container">
 
-        <div id="direcional">
-            <button onclick="moverCima()">⬆️</button><br>
-            <button onclick="moverEsquerda()">⬅️</button>
-            <button onclick="moverBaixo()">⬇️</button>
-            <button onclick="moverDireita()">➡️</button>
+
+        <div id="painel-pontuacao">
+            <table class="tabela-pontuacao">
+                <tr class="linha-pontuacao">
+                    <!-- SCORE -->
+                    <td class="celula-pontuacao">
+                        <div class="item-pontuacao">
+                            <span class="titulo-pontuacao">SCORE</span>
+                            <div class="valor-pontuacao" id="score">0</div>
+                        </div>
+                    </td>
+
+                    <td class="celula-pontuacao">
+                        <div class="item-pontuacao">
+                            <span class="titulo-pontuacao">HI-SCORE</span>
+                            <div class="valor-pontuacao" id="hi-score">0</div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="linha-pontuacao">
+                    <td class="celula-pontuacao">
+                        <div class="item-pontuacao">
+                            <span class="titulo-pontuacao">ULTRA.</span>
+                            <div class="valor-pontuacao" id="ultrapassagens">0</div>
+                        </div>
+                    </td>
+
+                    <td class="celula-pontuacao">
+                        <div class="item-pontuacao">
+                            <span class="titulo-pontuacao">VELOC.</span>
+                            <div class="valor-pontuacao" id="velocidade">1.0</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
 
+        <div id="area-jogo">
+            <div id="pista">
+
+                <div id="faixa-esquerda" class="faixa-pista"></div>
+                <div id="faixa-direita" class="faixa-pista"></div>
+                <div class="limite-pista limite-esquerdo"></div>
+                <div class="limite-pista limite-direito"></div>
+
+            </div>
+        </div>
     </div>
+    <div id="menu">
+        <table class="tabela-menu">
+            <tr class="linha-menu">
+                <td class="celula-titulo" colspan="2">
+                    <label for="corCarro">Cor do Carro:</label>
+                </td>
+            </tr>
 
-</div>
+            <tr class="linha-menu">
+                <td class="celula-selecao" colspan="2">
+                    <select id="corCarro">
+                        <option value="#ff0000">Vermelho</option>
+                        <option value="#00ff00">Verde</option>
+                        <option value="#0000ff">Azul</option>
+                        <option value="#ffff00">Amarelo</option>
+                        <option value="#ff00ff">Rosa</option>
+                    </select>
+                </td>
+            </tr>
 
-<script src="script.js"></script>
+            <tr class="linha-menu">
+                <td class="celula-botao">
+                    <button class="botao-menu botao-start">START</button>
+                </td>
+                <td class="celula-botao">
+                    <button class="botao-menu botao-end">END</button>
+                </td>
+            </tr>
+
+            <tr class="linha-menu">
+                <td class="celula-botao">
+                    <button class="botao-menu">PAUSE</button>
+                </td>
+                <td class="celula-botao">
+                    <button class="botao-menu botao-menu-btn">MENU</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="controles">
+    <table class="tabela-direcional">
+        <tr>
+            <td class="celula-vazia"></td>
+            <td class="celula-direcional">
+                <button class="botao-direcional botao-cima" onclick="moverCima()">⬆️</button>
+            </td>
+            <td class="celula-vazia"></td>
+        </tr>
+
+        <tr>
+            <td class="celula-direcional">
+                <button class="botao-direcional botao-esquerda" onclick="moverEsquerda()">⬅️</button>
+            </td>
+            <td class="celula-direcional">
+                <button class="botao-direcional botao-baixo" onclick="moverBaixo()">⬇️</button>
+            </td>
+            <td class="celula-direcional">
+                <button class="botao-direcional botao-direita" onclick="moverDireita()">➡️</button>
+            </td>
+        </tr>
 </body>
 </html>

@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0a2a, #1a1a3a);
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #00ffff;
+    margin: 5px 0 10px 0;
+    padding: 8px;
+    border-bottom: 2px solid #ff0080;
+    text-align: center;
+    width: 95%;
+    max-width: 600px;
+    font-size: 1.8rem;
+}
+
+
+.jogo-container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    max-width: 600px;
+    margin: 5px 0;
+}
+
+#painel-pontuacao {
+    background: rgba(0, 0, 30, 0.9);
+    border: 2px solid #00aaff;
+    border-radius: 4px;
+    padding: 1px;
+    margin-bottom: 4px;
+    width: 100%;
+    max-width: 300px;
+    border-collapse: separate;
+    border-spacing: 6px;
+    margin: 0 auto;
+}
+
+.tabela-pontuacao {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.celula-pontuacao {
+    text-align: center;
+    padding: 4px;
+    width: 50%;
+    vertical-align: top;
+}
+
+.item-pontuacao {
+    text-align: center;
+    padding: 0;
+}
+
+.titulo-pontuacao {
+    color: #00ff80;
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+    font-weight: bold;
+    display: block;
+}
+
+.valor-pontuacao {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-shadow: 0 0 4px #00ffff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid #00aaff;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+
+
+#area-jogo {
+    background: #001122;
+    border: 2px solid #ff0080;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 0 auto 10px auto;
+    min-height: 200px;
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: none;
+}
+
+#pista {
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(90deg, #222, #333 50%, #222);
+    position: relative;
+    border: 1px solid #555;
+    border-radius: 4px;
+
+}
+
+#carro-jogador {
+    position: absolute;
+    width: 30px;
+    height: 45px;
+    background: #ff0000;
+    border-radius: 4px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: left 0.2s;
+    z-index: 10;
+}
+
+.carro-adversario {
+    position: absolute;
+    width: 30px;
+    height: 45px;
+    background: #00aaff;
+    border-radius: 4px;
+    top: -45px;
+    transition: top 0.1s linear;
+}
+
+#menu {
+    background: rgba(0, 0, 30, 0.8);
+    border: 2px solid #00aaff;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 8px 0;
+    width: 95%;
+    max-width: 500px;
+}
+
+.tabela-menu {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 8px;
+    table-layout: fixed;
+}
+
+.linha-menu {
+    margin-bottom: 8px;
+}
+
+.celula-menu {
+    padding: 4px;
+    vertical-align: middle;
+}
+
+.celula-titulo {
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+#menu label {
+    color: #00ff80;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.celula-selecao {
+    text-align: center;
+    padding: 8px 0;
+}
+
+#corCarro {
+    background: #002244;
+    color: white;
+    border: 1px solid #00aaff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    width: 80%;
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+.celula-botao {
+    text-align: center;
+    padding: 4px;
+}
+
+.botao-menu {
+    background: #ff0080;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    width: 100%;
+    min-height: 40px;
+    transition: all 0.2s;
+    display: block;
+}
+
+.botao-menu:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.botao-menu:active {
+    transform: translateY(0);
+}
+
+.botao-start {
+    background: #00aa00;
+}
+
+.botao-end {
+    background: #ffaa00;
+}
+
+.botao-menu-btn {
+    background: #aa00ff;
+}
+
+#mensagem-jogo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffff00;
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: 2px solid #ff0080;
+    font-size: 1.5rem;
+    text-align: center;
+    z-index: 100;
+    display: none;
+}
+
+@keyframes piscar {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.piscar {
+    animation: piscar 0.5s infinite;
+}
+
+
+#controles {
+    background: rgba(0, 0, 30, 0.8);
+    border: 2px solid #ff0080;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 8px 0;
+    width: 95%;
+    max-width: 250px;
+}
+
+.tabela-direcional {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 0 auto;
+}
+
+.celula-direcional {
+    width: 33.33%;
+    height: 60px;
+    text-align: center;
+    padding: 4px;
+}
+
+
+.botao-direcional {
+    background: #002244;
+    color: white;
+    border: 2px solid;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    min-height: 50px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.botao-direcional:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.botao-direcional:active {
+    transform: scale(0.95);
+}
+
+.botao-cima {
+    border-color: #00ff00;
+}
+
+.botao-esquerda {
+    border-color: #ffaa00;
+}
+
+.botao-baixo {
+    border-color: #ff0080;
+}
+
+.botao-direita {
+    border-color: #aa00ff;
+}
+
+.celula-vazia {
+    background: transparent;
+}
+
+.linha-pista {
+    position: absolute;
+    width: 6px;
+    height: 25px;
+    background: #ffff00;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes moverLinha {
+    0% {
+        transform: translateX(-50%) translateY(-30px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(180px);
+    }
+}
+
+.linha-pista {
+    animation: moverLinha 1s linear infinite;
+}
+
+
+.faixa-pista {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    border-left: 2px dashed rgba(255, 255, 255, 0.2);
+    border-right: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+#faixa-esquerda {
+    left: 20%;
+}
+
+#faixa-direita {
+    left: 60%;
+}
+
+.limite-pista {
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 100%;
+    background: repeating-linear-gradient(to bottom,
+            transparent,
+            transparent 10px,
+            rgba(255, 0, 0, 0.3) 10px,
+            rgba(255, 0, 0, 0.3) 20px);
+    z-index: 1;
+}
+
+.limite-esquerdo {
+    left: 0;
+}
+
+.limite-direito {
+    right: 0;
+}
+
+.jogo-iniciado #carro-jogador {
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.jogo-pausado * {
+    animation-play-state: paused !important;
+}
+
+.efeito-ultrapassagem {
+    animation: pulse 0.5s ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.efeito-colisao {
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translateX(-1px);
+    }
+
+    20%,
+    80% {
+        transform: translateX(2px);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translateX(-3px);
+    }
+
+    40%,
+    60% {
+        transform: translateX(3px);
+    }
+}
